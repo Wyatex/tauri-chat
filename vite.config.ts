@@ -1,4 +1,5 @@
 import path from 'node:path'
+import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Shiki from '@shikijs/markdown-it'
@@ -9,6 +10,7 @@ import utc from 'dayjs/plugin/utc'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
@@ -18,7 +20,6 @@ import { defineConfig } from 'vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import VueLayouts from 'vite-plugin-vue-layouts'
 
-// @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST
 
 dayjs.extend(utc)
@@ -64,8 +65,7 @@ export default defineConfig(async () => ({
       ],
       dts: 'src/typings/auto-imports.d.ts',
       dirs: [
-        'src/composables',
-        'src/stores',
+        'src/store/modules',
       ],
       vueTemplate: true,
     }),
@@ -77,6 +77,10 @@ export default defineConfig(async () => ({
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       dts: 'src/typings/components.d.ts',
+      types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
+      resolvers: [
+        NaiveUiResolver(),
+      ],
     }),
 
     // https://github.com/antfu/unocss

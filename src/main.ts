@@ -1,4 +1,18 @@
-import { createApp } from "vue";
-import App from "./App.vue";
+import { setupI18n } from '@/locales'
+import { setupDayjs, setupNProgress, setupVueRouter } from '@/plugins'
+import { setupStore } from '@/store'
+import { createApp } from 'vue'
+import App from './App.vue'
+import './plugins/assets'
 
-createApp(App).mount("#app");
+async function setupApp() {
+  setupNProgress()
+  setupDayjs()
+  const app = createApp(App)
+  setupStore(app)
+  setupVueRouter(app)
+  setupI18n(app)
+  app.mount('#app')
+}
+
+setupApp()

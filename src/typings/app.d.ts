@@ -165,4 +165,159 @@ declare namespace App {
       boxShadow: ThemeSettingTokenBoxShadow & { [key: string]: string }
     }
   }
+
+  /**
+   * I18n namespace
+   *
+   * Locales type
+   */
+  namespace I18n {
+    type LangType = 'en-US' | 'zh-CN'
+
+    interface LangOption {
+      label: string
+      key: LangType
+    }
+
+    interface FormMsg {
+      required: string
+      invalid: string
+    }
+
+    interface Schema {
+      system: {
+        title: string
+        updateTitle: string
+        updateContent: string
+        updateConfirm: string
+        updateCancel: string
+      }
+      common: {
+        action: string
+        add: string
+        addSuccess: string
+        backToHome: string
+        batchDelete: string
+        cancel: string
+        close: string
+        check: string
+        expandColumn: string
+        columnSetting: string
+        config: string
+        confirm: string
+        delete: string
+        deleteSuccess: string
+        confirmDelete: string
+        edit: string
+        warning: string
+        error: string
+        index: string
+        keywordSearch: string
+        logout: string
+        logoutConfirm: string
+        lookForward: string
+        modify: string
+        modifySuccess: string
+        noData: string
+        operate: string
+        pleaseCheckValue: string
+        refresh: string
+        reset: string
+        search: string
+        switch: string
+        tip: string
+        trigger: string
+        update: string
+        updateSuccess: string
+        userCenter: string
+        yesOrNo: {
+          yes: string
+          no: string
+        }
+      }
+      theme: {
+        themeSchema: { title: string } & Record<UnionKey.ThemeScheme, string>
+        grayscale: string
+        colourWeakness: string
+        layoutMode: { title: string, reverseHorizontalMix: string } & Record<UnionKey.ThemeLayoutMode, string>
+        recommendColor: string
+        recommendColorDesc: string
+        themeColor: {
+          title: string
+          followPrimary: string
+        } & Theme.ThemeColor
+        scrollMode: { title: string } & Record<UnionKey.ThemeScrollMode, string>
+        page: {
+          animate: string
+          mode: { title: string } & Record<UnionKey.ThemePageAnimateMode, string>
+        }
+        fixedHeaderAndTab: string
+        header: {
+          height: string
+          breadcrumb: {
+            visible: string
+            showIcon: string
+          }
+          multilingual: {
+            visible: string
+          }
+        }
+        tab: {
+          visible: string
+          cache: string
+          height: string
+          mode: { title: string } & Record<UnionKey.ThemeTabMode, string>
+        }
+        sider: {
+          inverted: string
+          width: string
+          collapsedWidth: string
+          mixWidth: string
+          mixCollapsedWidth: string
+          mixChildMenuWidth: string
+        }
+        footer: {
+          visible: string
+          fixed: string
+          height: string
+          right: string
+        }
+        watermark: {
+          visible: string
+          text: string
+        }
+        themeDrawerTitle: string
+        pageFunTitle: string
+        resetCacheStrategy: { title: string } & Record<UnionKey.ResetCacheStrategy, string>
+        configOperation: {
+          copyConfig: string
+          copySuccessMsg: string
+          resetConfig: string
+          resetSuccessMsg: string
+        }
+      }
+    }
+
+    type GetI18nKey<T extends Record<string, unknown>, K extends keyof T = keyof T> = K extends string
+      ? T[K] extends Record<string, unknown>
+        ? `${K}.${GetI18nKey<T[K]>}`
+        : K
+      : never
+
+    type I18nKey = GetI18nKey<Schema>
+
+    type TranslateOptions<Locales extends string> = import('vue-i18n').TranslateOptions<Locales>
+
+    interface $T {
+      (key: I18nKey): string
+      (key: I18nKey, plural: number, options?: TranslateOptions<LangType>): string
+      (key: I18nKey, defaultMsg: string, options?: TranslateOptions<I18nKey>): string
+      (key: I18nKey, list: unknown[], options?: TranslateOptions<I18nKey>): string
+      (key: I18nKey, list: unknown[], plural: number): string
+      (key: I18nKey, list: unknown[], defaultMsg: string): string
+      (key: I18nKey, named: Record<string, unknown>, options?: TranslateOptions<LangType>): string
+      (key: I18nKey, named: Record<string, unknown>, plural: number): string
+      (key: I18nKey, named: Record<string, unknown>, defaultMsg: string): string
+    }
+  }
 }
