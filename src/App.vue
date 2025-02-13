@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import DarkModeContainer from '@/components/dark-mode-container.vue'
 import { darkTheme } from 'naive-ui'
 import { naiveDateLocales, naiveLocales } from './locales/naive'
 
@@ -25,7 +26,9 @@ const naiveDateLocale = computed(() => {
     class="h-full"
   >
     <AppProvider>
-      <RouterView class="bg-layout" />
+      <DarkModeContainer>
+        <RouterView class="bg-layout" />
+      </DarkModeContainer>
     </AppProvider>
   </NConfigProvider>
 </template>

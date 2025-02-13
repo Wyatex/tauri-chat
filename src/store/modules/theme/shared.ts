@@ -138,8 +138,6 @@ function getCssVarByTokens(tokens: App.Theme.BaseToken) {
 
 /**
  * Add theme vars to global
- *
- * @param tokens
  */
 export function addThemeVarsToGlobal(tokens: App.Theme.BaseToken, darkTokens: App.Theme.BaseToken) {
   const cssVarStr = getCssVarByTokens(tokens)
@@ -188,11 +186,11 @@ export function toggleCssDarkMode(darkMode = false) {
  * Toggle auxiliary color modes
  *
  * @param grayscaleMode
- * @param colourWeakness
+ * @param colorWeakness
  */
-export function toggleAuxiliaryColorModes(grayscaleMode = false, colourWeakness = false) {
+export function toggleAuxiliaryColorModes(grayscaleMode = false, colorWeakness = false) {
   const htmlElement = document.documentElement
-  htmlElement.style.filter = [grayscaleMode ? 'grayscale(100%)' : '', colourWeakness ? 'invert(80%)' : '']
+  htmlElement.style.filter = [grayscaleMode ? 'grayscale(100%)' : '', colorWeakness ? 'invert(80%)' : '']
     .filter(Boolean)
     .join(' ')
 }

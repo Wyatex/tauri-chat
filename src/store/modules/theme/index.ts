@@ -2,6 +2,7 @@ import type { Ref } from 'vue'
 import { SetupStoreId } from '@/enum'
 import { localStg } from '@/utils/storage'
 import { getPaletteColorByNumber } from '@sa/color'
+import { setTheme } from '@tauri-apps/api/app'
 import { useEventListener, usePreferredColorScheme } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, effectScope, onScopeDispose, ref, toRefs, watch } from 'vue'
@@ -33,8 +34,8 @@ export const useThemeStore = defineStore(SetupStoreId.Theme, () => {
   /** grayscale mode */
   const grayscaleMode = computed(() => settings.value.grayscale)
 
-  /** colourWeakness mode */
-  const colourWeaknessMode = computed(() => settings.value.colourWeakness)
+  /** colorWeakness mode */
+  const colorWeaknessMode = computed(() => settings.value.colorWeakness)
 
   /** Theme colors */
   const themeColors = computed(() => {
@@ -83,12 +84,12 @@ export const useThemeStore = defineStore(SetupStoreId.Theme, () => {
   }
 
   /**
-   * Set colourWeakness value
+   * Set colorWeakness value
    *
-   * @param isColourWeakness
+   * @param isColorWeakness
    */
-  function setColourWeakness(isColourWeakness: boolean) {
-    settings.value.colourWeakness = isColourWeakness
+  function setColorWeakness(isColorWeakness: boolean) {
+    settings.value.colorWeakness = isColorWeakness
   }
 
   /** Toggle theme scheme */
@@ -177,12 +178,13 @@ export const useThemeStore = defineStore(SetupStoreId.Theme, () => {
       (val) => {
         toggleCssDarkMode(val)
         localStg.set('darkMode', val)
+        setTheme(val ? 'dark' : 'light')
       },
       { immediate: true },
     )
 
     watch(
-      [grayscaleMode, colourWeaknessMode],
+      [grayscaleMode, colorWeaknessMode],
       (val) => {
         toggleAuxiliaryColorModes(val[0], val[1])
       },
@@ -212,7 +214,7 @@ export const useThemeStore = defineStore(SetupStoreId.Theme, () => {
     naiveTheme,
     settingsJson,
     setGrayscale,
-    setColourWeakness,
+    setColorWeakness,
     resetStore,
     setThemeScheme,
     toggleThemeScheme,

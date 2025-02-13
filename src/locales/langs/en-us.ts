@@ -1,6 +1,6 @@
 const local: App.I18n.Schema = {
   system: {
-    title: 'SoybeanAdmin',
+    title: 'TauriChat',
     updateTitle: 'System Version Update Notification',
     updateContent: 'A new version of the system has been detected. Do you want to refresh the page immediately?',
     updateConfirm: 'Refresh immediately',
@@ -49,14 +49,6 @@ const local: App.I18n.Schema = {
       no: 'No',
     },
   },
-  request: {
-    logout: 'Logout user after request failed',
-    logoutMsg: 'User status is invalid, please log in again',
-    logoutWithModal: 'Pop up modal after request failed and then log out user',
-    logoutWithModalMsg: 'User status is invalid, please log in again',
-    refreshToken: 'The requested token has expired, refresh the token',
-    tokenExpired: 'The requested token has expired',
-  },
   theme: {
     themeSchema: {
       title: 'Theme Schema',
@@ -65,7 +57,7 @@ const local: App.I18n.Schema = {
       auto: 'Follow System',
     },
     grayscale: 'Grayscale',
-    colourWeakness: 'Colour Weakness',
+    colorWeakness: 'Color Weakness',
     layoutMode: {
       'title': 'Layout Mode',
       'vertical': 'Vertical Menu Mode',
@@ -156,139 +148,12 @@ const local: App.I18n.Schema = {
       resetSuccessMsg: 'Reset Success',
     },
   },
-  route: {
-    'login': 'Login',
-    '403': 'No Permission',
-    '404': 'Page Not Found',
-    '500': 'Server Error',
-    'iframe-page': 'Iframe',
-    'home': 'Home',
-  },
   page: {
-    login: {
-      common: {
-        loginOrRegister: 'Login / Register',
-        userNamePlaceholder: 'Please enter user name',
-        phonePlaceholder: 'Please enter phone number',
-        codePlaceholder: 'Please enter verification code',
-        passwordPlaceholder: 'Please enter password',
-        confirmPasswordPlaceholder: 'Please enter password again',
-        codeLogin: 'Verification code login',
-        confirm: 'Confirm',
-        back: 'Back',
-        validateSuccess: 'Verification passed',
-        loginSuccess: 'Login successfully',
-        welcomeBack: 'Welcome back, {userName} !',
-      },
-      pwdLogin: {
-        title: 'Password Login',
-        rememberMe: 'Remember me',
-        forgetPassword: 'Forget password?',
-        register: 'Register',
-        otherAccountLogin: 'Other Account Login',
-        otherLoginMode: 'Other Login Mode',
-        superAdmin: 'Super Admin',
-        admin: 'Admin',
-        user: 'User',
-      },
-      codeLogin: {
-        title: 'Verification Code Login',
-        getCode: 'Get verification code',
-        reGetCode: 'Reacquire after {time}s',
-        sendCodeSuccess: 'Verification code sent successfully',
-        imageCodePlaceholder: 'Please enter image verification code',
-      },
-      register: {
-        title: 'Register',
-        agreement: 'I have read and agree to',
-        protocol: '《User Agreement》',
-        policy: '《Privacy Policy》',
-      },
-      resetPwd: {
-        title: 'Reset Password',
-      },
-      bindWeChat: {
-        title: 'Bind WeChat',
-      },
+    index: {
+      newChat: 'New Chat',
+      chatHistory: 'Chat History',
+      clearHistory: 'Clear History',
     },
-    home: {
-      branchDesc:
-        'For the convenience of everyone in developing and updating the merge, we have streamlined the code of the main branch, only retaining the homepage menu, and the rest of the content has been moved to the example branch for maintenance. The preview address displays the content of the example branch.',
-      greeting: 'Good morning, {userName}, today is another day full of vitality!',
-      weatherDesc: 'Today is cloudy to clear, 20℃ - 25℃!',
-      projectCount: 'Project Count',
-      todo: 'Todo',
-      message: 'Message',
-      downloadCount: 'Download Count',
-      registerCount: 'Register Count',
-      schedule: 'Work and rest Schedule',
-      study: 'Study',
-      work: 'Work',
-      rest: 'Rest',
-      entertainment: 'Entertainment',
-      visitCount: 'Visit Count',
-      turnover: 'Turnover',
-      dealCount: 'Deal Count',
-      projectNews: {
-        title: 'Project News',
-        moreNews: 'More News',
-        desc1: 'Soybean created the open source project soybean-admin on May 28, 2021!',
-        desc2: 'Yanbowe submitted a bug to soybean-admin, the multi-tab bar will not adapt.',
-        desc3: 'Soybean is ready to do sufficient preparation for the release of soybean-admin!',
-        desc4: 'Soybean is busy writing project documentation for soybean-admin!',
-        desc5: 'Soybean just wrote some of the workbench pages casually, and it was enough to see!',
-      },
-      creativity: 'Creativity',
-    },
-  },
-  form: {
-    required: 'Cannot be empty',
-    userName: {
-      required: 'Please enter user name',
-      invalid: 'User name format is incorrect',
-    },
-    phone: {
-      required: 'Please enter phone number',
-      invalid: 'Phone number format is incorrect',
-    },
-    pwd: {
-      required: 'Please enter password',
-      invalid: '6-18 characters, including letters, numbers, and underscores',
-    },
-    confirmPwd: {
-      required: 'Please enter password again',
-      invalid: 'The two passwords are inconsistent',
-    },
-    code: {
-      required: 'Please enter verification code',
-      invalid: 'Verification code format is incorrect',
-    },
-    email: {
-      required: 'Please enter email',
-      invalid: 'Email format is incorrect',
-    },
-  },
-  dropdown: {
-    closeCurrent: 'Close Current',
-    closeOther: 'Close Other',
-    closeLeft: 'Close Left',
-    closeRight: 'Close Right',
-    closeAll: 'Close All',
-  },
-  icon: {
-    themeConfig: 'Theme Configuration',
-    themeSchema: 'Theme Schema',
-    lang: 'Switch Language',
-    fullscreen: 'Fullscreen',
-    fullscreenExit: 'Exit Fullscreen',
-    reload: 'Reload Page',
-    collapse: 'Collapse Menu',
-    expand: 'Expand Menu',
-    pin: 'Pin',
-    unpin: 'Unpin',
-  },
-  datatable: {
-    itemCount: 'Total {total} items',
   },
 }
 

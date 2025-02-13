@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    Hello world!
+    hello world!
   </div>
 </template>
 

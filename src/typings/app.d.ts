@@ -10,8 +10,8 @@ declare namespace App {
       themeScheme: UnionKey.ThemeScheme
       /** grayscale mode */
       grayscale: boolean
-      /** colour weakness mode */
-      colourWeakness: boolean
+      /** color weakness mode */
+      colorWeakness: boolean
       /** Whether to recommend color */
       recommendColor: boolean
       /** Theme color */
@@ -160,7 +160,7 @@ declare namespace App {
     type ThemeTokenColor = ThemePaletteColor & ThemeSettingTokenColor
 
     /** Theme token CSS variables */
-    interface ThemeTokenCSSVars {
+    type ThemeTokenCSSVars = {
       colors: ThemeTokenColor & { [key: string]: string }
       boxShadow: ThemeSettingTokenBoxShadow & { [key: string]: string }
     }
@@ -184,13 +184,20 @@ declare namespace App {
       invalid: string
     }
 
-    interface Schema {
+    type Schema = {
       system: {
         title: string
         updateTitle: string
         updateContent: string
         updateConfirm: string
         updateCancel: string
+      }
+      page: {
+        index: {
+          newChat: string
+          chatHistory: string
+          clearHistory: string
+        }
       }
       common: {
         action: string
@@ -238,7 +245,7 @@ declare namespace App {
       theme: {
         themeSchema: { title: string } & Record<UnionKey.ThemeScheme, string>
         grayscale: string
-        colourWeakness: string
+        colorWeakness: string
         layoutMode: { title: string, reverseHorizontalMix: string } & Record<UnionKey.ThemeLayoutMode, string>
         recommendColor: string
         recommendColorDesc: string

@@ -25,6 +25,7 @@ export const useAppStore = defineStore(SetupStoreId.App, () => {
 
   /** Is mobile layout */
   const isMobile = breakpoints.smaller('sm')
+  const activeBreakpoint = breakpoints.active()
 
   /**
    * Reload page
@@ -121,6 +122,7 @@ export const useAppStore = defineStore(SetupStoreId.App, () => {
 
   return {
     isMobile,
+    activeBreakpoint,
     reloadFlag,
     reloadPage,
     fullContent,

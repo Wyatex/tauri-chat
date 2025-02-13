@@ -46,6 +46,7 @@ export default defineConfig(async () => ({
     VueRouter({
       extensions: ['.vue', '.md'],
       dts: 'src/typings/typed-router.d.ts',
+      exclude: ['**/components/*'],
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -66,6 +67,7 @@ export default defineConfig(async () => ({
       dts: 'src/typings/auto-imports.d.ts',
       dirs: [
         'src/store/modules',
+        'src/locales',
       ],
       vueTemplate: true,
     }),

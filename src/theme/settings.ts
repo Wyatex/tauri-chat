@@ -1,8 +1,8 @@
 /** Default theme settings */
 export const themeSettings: App.Theme.ThemeSetting = {
-  themeScheme: 'light',
+  themeScheme: 'dark',
   grayscale: false,
-  colourWeakness: false,
+  colorWeakness: false,
   recommendColor: false,
   themeColor: '#646cff',
   otherColor: {
@@ -42,10 +42,7 @@ export const themeSettings: App.Theme.ThemeSetting = {
   sider: {
     inverted: false,
     width: 220,
-    collapsedWidth: 64,
-    mixWidth: 90,
-    mixCollapsedWidth: 64,
-    mixChildMenuWidth: 200,
+    collapsedWidth: 0,
   },
   footer: {
     visible: true,

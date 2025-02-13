@@ -11,6 +11,7 @@ export default antfu(
     ],
     rules: {
       'ts/no-empty-object-type': 'off',
+      'ts/consistent-type-definitions': 'off',
       'regexp/no-unused-capturing-group': 'off',
     },
   },
